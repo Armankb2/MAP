@@ -195,8 +195,8 @@ All 12 high-resolution figures are stored in [`results/plots/`](file:///Users/ar
 
 ## 8. Academic Project Reports
 The project report strictly preserves the official MSRIT template structure, cover page, and evaluation sheet:
-- **Editable Word Report**: [`report/Shared_Memory_KMeans_Report.docx`](https://github.com/Armankb2/MAP/blob/main/report/Shared_Memory_KMeans_Report.docx)
-- **Rendered PDF Report (27 pages)**: [`report/Shared_Memory_KMeans_Report.pdf`](https://github.com/Armankb2/MAP/blob/main/report/Shared_Memory_KMeans_Report.pdf)
+- **Editable Word Report**: [`report/Shared_Memory_KMeans_Report.docx`](https://github.com/Armankb2/MAP/blob/main/report/Final_Report.docx)
+- **Rendered PDF Report (27 pages)**: [`report/Shared_Memory_KMeans_Report.pdf`](https://github.com/Armankb2/MAP/blob/main/report/Final_Report.pdf)
 
 ---
 
