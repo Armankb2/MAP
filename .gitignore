@@ -1,0 +1,22 @@
+# Binaries
+bin/
+*.o
+*.obj
+*.exe
+*.out
+
+# Build directories
+build/
+
+# Large datasets (should be regenerated)
+datasets/synthetic/*
+
+# Python compiled files
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+
+# OS files
+.DS_Store
