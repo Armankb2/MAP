@@ -32,7 +32,7 @@ void append_csv_line(const char *path,
                      double power_w) {
     FILE *f = fopen(path, "a");
     if (!f) return;
-    fprintf(f, "%s,%s,%s,%s,%s,%zu,%d,%d,%.3f,%.3f,%.3f,%.3f,%.6f,%.6f\n",
+    fprintf(f, "%s,%s,%s,%s,%s,%zu,%d,%d,%.3f,%.3f,%.3f,%.3f,%.12e,%.6f\n",
             cluster, problem, platform, implementation, dataset, size, threads, run_id,
             total_ms, kernel_ms, transfer_ms, throughput, error, power_w);
     fclose(f);

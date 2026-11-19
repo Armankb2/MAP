@@ -1,5 +1,6 @@
 # Makefile for Shared-Memory K-Means (P28 – Cluster H)
-# Requires: Homebrew LLVM clang + libomp on Apple Silicon (ARM64)
+# Pure C11 Implementation on Apple Silicon (ARM64)
+# Requires: Clang + libomp + Pthreads
 
 CLANG   := /opt/homebrew/opt/llvm/bin/clang
 CFLAGS  := -std=c11 -O3 -march=armv8.5-a \
@@ -19,25 +20,30 @@ OMP     := src/openmp/kmeans_private.c \
 PTH     := src/pthreads/kmeans_pthreads.c
 BENCH   := src/benchmark/benchmark.c
 
-ALL_SRC := $(COMMON) $(SEQ) $(OMP) $(PTH) $(BENCH)
-ALL_OBJ := $(ALL_SRC:.c=.o)
+BENCH_SRC := $(COMMON) $(SEQ) $(OMP) $(PTH) $(BENCH)
+BENCH_OBJ := $(BENCH_SRC:.c=.o)
 
-.PHONY: all clean test
+.PHONY: all clean test stream
 
-all: $(BIN_DIR)/benchmark
+all: $(BIN_DIR)/benchmark $(BIN_DIR)/stream_mem
 
-$(BIN_DIR)/benchmark: $(ALL_OBJ)
+$(BIN_DIR)/benchmark: $(BENCH_OBJ)
 	@mkdir -p $(BIN_DIR)
 	$(CLANG) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+
+$(BIN_DIR)/stream_mem: src/benchmark/stream_mem.c
+	@mkdir -p $(BIN_DIR)
+	$(CLANG) $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 %.o: %.c
 	$(CLANG) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(BIN_DIR) $(ALL_OBJ)
+	rm -rf $(BIN_DIR) $(BENCH_OBJ)
 
 test: all
 	@mkdir -p results/raw
-	python3 scripts/generate_dataset.py --N 10000 --d 2 --k 8 --seed 42 --layout AoS --out /tmp/test_ds.bin
-	$(BIN_DIR)/benchmark /tmp/test_ds.bin 4 results/raw/test_run.csv
-	python3 tests/check_correctness.py results/raw/test_run.csv
+	python3 tests/check_correctness.py
+
+stream: $(BIN_DIR)/stream_mem
+	DYLD_LIBRARY_PATH=/opt/homebrew/opt/libomp/lib $(BIN_DIR)/stream_mem 8
