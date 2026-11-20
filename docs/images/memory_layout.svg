@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Memory Layout Comparison: AoS vs SoA -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" style="background:#0D1117;font-family:Arial,Helvetica,sans-serif;">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748B"/>
+    </marker>
+  </defs>
+  <!-- AoS -->
+  <text x="200" y="30" fill="#6B8FBF" font-size="14" text-anchor="middle" font-weight="bold">Array‑of‑Structures (AoS)</text>
+  <rect x="120" y="50" width="160" height="180" fill="none" stroke="#30363D" stroke-width="2"/>
+  <!-- Rows representing points -->
+  <line x1="120" y1="90" x2="280" y2="90" stroke="#64748B" stroke-width="1"/>
+  <line x1="120" y1="130" x2="280" y2="130" stroke="#64748B" stroke-width="1"/>
+  <line x1="120" y1="170" x2="280" y2="170" stroke="#64748B" stroke-width="1"/>
+  <text x="200" y="80" fill="#E6EDF3" font-size="12" text-anchor="middle">{x₁, y₁, …}</text>
+  <text x="200" y="120" fill="#E6EDF3" font-size="12" text-anchor="middle">{x₂, y₂, …}</text>
+  <text x="200" y="160" fill="#E6EDF3" font-size="12" text-anchor="middle">{xₙ, yₙ, …}</text>
+  <!-- SoA -->
+  <text x="600" y="30" fill="#6B8FBF" font-size="14" text-anchor="middle" font-weight="bold">Structure‑of‑Arrays (SoA)</text>
+  <rect x="520" y="50" width="160" height="180" fill="none" stroke="#30363D" stroke-width="2"/>
+  <line x1="520" y1="90" x2="680" y2="90" stroke="#64748B" stroke-width="1"/>
+  <line x1="520" y1="130" x2="680" y2="130" stroke="#64748B" stroke-width="1"/>
+  <line x1="520" y1="170" x2="680" y2="170" stroke="#64748B" stroke-width="1"/>
+  <text x="600" y="80" fill="#E6EDF3" font-size="12" text-anchor="middle">x[0…N‑1]</text>
+  <text x="600" y="120" fill="#E6EDF3" font-size="12" text-anchor="middle">y[0…N‑1]</text>
+  <text x="600" y="160" fill="#E6EDF3" font-size="12" text-anchor="middle">…</text>
+  <!-- Arrow indicating access pattern -->
+  <path d="M290,120 H520" stroke="#64748B" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="405" y="115" fill="#5F9E9A" font-size="12" text-anchor="middle">Strided memory access</text>
+</svg>

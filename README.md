@@ -27,28 +27,35 @@ The required research question is:
 ---
 
 ## 3. Architecture Overview
-```mermaid
-flowchart TD
-    subgraph Data[Dataset]
-        D1[Synthetic Gaussian blobs] -->|binary| B1[Binary files]
-        D2[Real UCI datasets] -->|binary| B2[Binary files]
-    end
-    subgraph Bench[Benchmark driver]
-        B1 --> BenchExec[benchmark executable]
-        B2 --> BenchExec
-    end
-    BenchExec --> CSV[CSV results]
-    CSV --> Plot[plot_results.py]
-    Plot --> PNG[PNG figures]
-    CSV --> Report[make_report.py]
-    Report --> DOCX[DOCX report]
-    Report --> PDF[PDF report]
-```
+
+![Project Architecture Overview](docs/images/architecture.svg)
+
+The diagram shows the end‑to‑end data‑generation → benchmark driver → CSV logging → Python post‑processing flow that produces the plots and the final DOCX/PDF report.
 The driver runs each implementation, records wall‑clock timing with high‑precision monotonic timers, and writes a CSV with `%.12e` precision.  The Python scripts consume the CSVs to produce publication‑quality plots and a 27‑page MSRIT‑style report.
 
 ---
 
-## 4. Repository Layout
+---
+
+## 4. Parallel Implementation Taxonomy
+
+![Parallel Implementation Taxonomy](docs/images/parallel_taxonomy.svg)
+
+A concise view of all K‑Means kernels and their parallelisation strategy.
+
+## 5. Benchmark & Reporting Workflow
+
+![Benchmark & Reporting Workflow](docs/images/benchmark_workflow.svg)
+
+The driver produces CSV results, which are turned into plots and the final DOCX/PDF report.
+
+## 6. Memory Layout Comparison (AoS vs SoA)
+
+![Memory Layout Comparison](docs/images/memory_layout.svg)
+
+Illustrates the physical organization of points in AoS and SoA formats and the resulting access patterns.
+
+## 7. Repository Layout
 ```
 MAP/
 ├── README.md                # (this file)
