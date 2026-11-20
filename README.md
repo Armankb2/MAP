@@ -1,9 +1,6 @@
 # Shared‑Memory K‑Means Clustering (Project P28 – Cluster H)
 
-**Course:** Multicore Architecture and Programming (CS‑72)  
-**Institution:** Ramaiah Institute of Technology, Bengaluru  
-**Department:** Computer Science & Engineering  
-**Academic Year:** 2026‑27
+
 
 ---
 
