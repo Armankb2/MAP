@@ -190,12 +190,6 @@ This project is released under the MIT License – see the `LICENSE` file.
 
 ---
 
-## 12. Alignment with the Cohesity Content Engineer Intern Role
-- **Technical writing**: The README demonstrates clear, concise documentation that can be rendered directly on GitHub and bundled with the repository.
-- **Markdown‑as‑code**: All usage instructions, diagrams and tables are expressed in Markdown, enabling version‑controlled, reproducible documentation.
-- **Python automation**: `plot_results.py` and `make_report.py` automate data‑driven content generation, a core competency for content engineering.
-- **Data‑driven storytelling**: Performance results are presented with high‑precision metrics, graphs and a formal report, showcasing the ability to turn raw data into compelling technical narratives.
-- **Cross‑platform tooling**: The build system, scripts and documentation are designed to be portable and easy to adopt across teams.
 
 ---
 
