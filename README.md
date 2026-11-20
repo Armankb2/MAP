@@ -39,7 +39,7 @@ The driver runs each implementation, records wall‑clock timing with high‑pre
 
 ## 4. Parallel Implementation Taxonomy
 
-![Parallel Implementation Taxonomy](docs/images/parallel_taxonomy.svg)
+<img src="docs/images/parallel_taxonomy.svg" alt="Parallel Implementation Taxonomy" style="max-width:100%;"/>
 
 A concise view of all K‑Means kernels and their parallelisation strategy.
 
