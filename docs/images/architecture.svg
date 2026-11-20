@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Project Architecture Overview -->
-<title>Project Architecture Overview</title>
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300" style="background:#0D1117;font-family:Arial,Helvetica,sans-serif;">
   <!-- Boxes -->
   <rect x="30" y="30" width="200" height="80" fill="none" stroke="#30363D" stroke-width="2"/>
